@@ -1,8 +1,20 @@
-# CyberSecurity
-analysis of Internet Connection Anomaly like DDos, Dos, brutal force
+# DOS Attack classification with Deep Learning
+Welcome everyone,
 
-Stage I:
-Train CNN/RNN/DNN models direclt on DDOs/Dos attacks for baseline models:
+I'm most attached to this project since it's the one that introduce me to the world of Machine learning. 
+
+We conduct analysis and classification of 7 different internet attack using [CICDDOS2019](https://www.unb.ca/cic/datasets/ddos-2019.html) datasets and [Dos 2017](https://www.unb.ca/cic/datasets/dos-dataset.html) datasets.
+
+
+## Data Overview:
+| Datasets | Labels | Attributes|
+| --| --| --|
+|DDOS, DOS | ```Portmap``` , ```NetBIOS``` , ```LDAP``` , ```MSSQL``` , ```UDP``` , ```SYN``` , ```Benign``` |86 attributes|
+
+Where Dos attacks need to conduct feature extraction through [CICFlowMeter](https://github.com/CanadianInstituteForCybersecurity/CICFlowMeter)
+
+## Stage I: Baseline Training
+Train CNN/RNN models direclt on DDOs/Dos attacks for baseline models:
 ![5](https://user-images.githubusercontent.com/97998419/223625271-567a2b0c-ff48-471b-aed8-9131839d6f91.png)
 
 Stage II:
