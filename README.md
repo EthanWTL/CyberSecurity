@@ -39,7 +39,7 @@ CNN Results:
 ## Stage II:
 Transfer Learning Dos Models on DDos attack to compare accuracy with baseline models
 
-[Here](final results.xlsx) is a complete Result regards different epoch and different freezing layers.
+[Here](final_results.xlsx) is a complete Result regards different epoch and different freezing layers.
 
 
 Stage III:
