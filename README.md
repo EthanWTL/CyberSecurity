@@ -14,12 +14,14 @@ Dataset has 17 million records and special thanks to Lambda Machine Provided by 
 
 Where Dos attacks need to conduct feature extraction through [CICFlowMeter](https://github.com/CanadianInstituteForCybersecurity/CICFlowMeter)
 
+---
+
 ## Stage I: Baseline Training
 CNN Results:
+* ```DataSize:``` 17 million records from CIC DDOS 2019
+* ```Attribute Used:``` 79 
+* ```Model Structure``` : ```Conv1d```, ```Dropout```, ```Maxplooing```, ```Flatten```, ```Dense```*2
 * ```Normalization:``` StandardScaler
-* ```Attribute Used:``` 79
-* ```DataSize:``` 17 million records
-* ```Model Structure:``` Conv1d * 3
 * ```Optimizer:``` RMRprop
 * ```Loss function:``` Sparse Categorical Crossentropy
 * ```Acc:``` 96.57%
@@ -37,11 +39,12 @@ CNN Results:
   |  53  |  0 |  75080 |   228  |  0   | 40 |3427634  |
 
 
-## Stage II:
+## Stage II: Transfer Learning
 Transfer Learning Dos Models on DDos attack to compare accuracy with baseline models
 
 [Here](final_results.xlsx) is a complete Result regards different epoch and different freezing layers.
 
+In this table we only show the first epoch and testing on 17 million records.
 |Layer Freezed | Accuracy | Precision | Recall | Time |
 | -----------  | ---------|-----------|--------| -----|
 |No Freeze     | 94.72%   |  93.27%   | 94.72% | 140s |
