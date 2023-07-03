@@ -23,7 +23,8 @@ CNN Results:
 * ```Optimizer:``` RMRprop
 * ```Loss function:``` Sparse Categorical Crossentropy
 * ```Acc:``` 96.57%
-* Confusion Matrix:
+* ```Time:``` 142s
+* ```Confusion Matrix:```
   
 |Benign | LDAP | MSSQL | NetBIOS| Portmap | Syn| UDP|
 | -- | --| --| --| --| --| --|
@@ -41,6 +42,16 @@ Transfer Learning Dos Models on DDos attack to compare accuracy with baseline mo
 
 [Here](final_results.xlsx) is a complete Result regards different epoch and different freezing layers.
 
+|Layer Freezed | Accuracy | Precision | Recall | Time |
+| -----------  | ---------|-----------|--------| -----|
+|No Freeze     | 94.72%   |  93.27%   | 94.72% | 140s |
+|1 Freeze     | 97.13%   |  96.28%   | 96.68% | 140s |
+|2 Freeze     | 97.34%   |  96.49%   | 96.89% | 142s |
+|3 Freeze     | 95.06%   |  93.59%   | 94.31% | 141s |
+|4 Freeze     | 97.21%   |  96.70%   | 97.21% | 140s |
+|5 Freeze     | 97.38%   |  96.52%   | 97.38% | 139s |
+| Mids Freeze     | 97.23%   |  96.37%   | 97.23% | 139s |
+| Ends Freeze     | 97.52%   |  96.66%   | 97.53% | 141s |
 
 Stage III:
 1. split Attacks in three groups and preprocessed by three agents into metadata (source information unkown for the rest of the training)
