@@ -16,6 +16,26 @@ Where Dos attacks need to conduct feature extraction through [CICFlowMeter](http
 ## Stage I: Baseline Training
 Train CNN/RNN models direclt on DDOs/Dos attacks for baseline models:
 ![5](https://user-images.githubusercontent.com/97998419/223625271-567a2b0c-ff48-471b-aed8-9131839d6f91.png)
+Results:
+* ```Normalization:``` StandardScaler
+* ```Attribute Used:``` 79
+* ```DataSize:``` 17 GB
+* ```Model Structure:``` Conv1d * 3
+* ```Optimizer:``` RMRprop
+* ```Loss function:``` Sparse Categorical Crossentropy
+* ```Acc:``` 99%
+* Confusion Matrix:
+  
+|Benign | LDAP | MSSQL | NetBIOS| Portmap | Syn| UDP|
+| -- | --| --| --| --| --| --|
+ |4513  |  0  |  0  |  0  |  2  |  0  |  0 | 
+   |  2 |4429  |  2  |  1   | 0   | 0  |  0    |
+   |  0  | 11 |4498   | 0 |   0  |  0   | 6    |
+   |  0  |  0  |  0| 4368 |  82   | 0   | 0    |
+  |   0  |  0  |  0  |  8| 4511  |  0   | 0   |
+ |  2  |  0 |   0  |  0  |  0 |4500   | 0    |
+  |  0  |  0 |  28 |   6  |  0   | 0 |4223  |
+
 
 Stage II:
 Transfer Learning DDos Model's on Dos attack to compare accuracy with baseline models
