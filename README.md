@@ -56,10 +56,50 @@ In this table we only show the first epoch and testing on 17 million records.
 | Mids Freeze     | 97.23%   |  96.37%   | 97.23% | 139s |
 | Ends Freeze     | 97.52%   |  96.66%   | 97.53% | 141s |
 
-Stage III:
-1. split Attacks in three groups and preprocessed by three agents into metadata (source information unkown for the rest of the training)
-![7](https://user-images.githubusercontent.com/97998419/223625440-95b8ad99-0307-4156-95c2-573bd0c7a5d4.png)
+## Stage III: Universal Meta Data Training Architecture - TL + FL
+We mimic a situation where there are three organizations and each suffer from two different DDOS attacks, as shown in the table
+
+Copmbined with a portion of Benign attack, we will have three edge of training data.
+
+| Company | Attacks| Abbreviation|
+|--|--|--|
+|Organization I | LDAP, UDP| LBU|
+|Organization II | Portmap, MSSQL| PBM|
+Organization III | NetBIOS, SYN | NBS|
+
+```mermaid
+graph TB
+    A{LBU}  --> D[DNN1]
+    B{PBM}  --> E[DNN2]
+    C{NBS}  --> F[DNN3]
+    
+    D -- feature_extraction --> G{MetaData I}
+    E -- feature_extraction --> H{MetaData II}
+    F -- feature_extraction --> I{MetaData III}
+
+    G --> J[CNN I]
+    H --TL--> J
+    H --TL-->K[CNN II]
+    I -->K
+    
+    J -- cross --> L[Bayesian Classifier]
+    K -- validation --> L
+```
+* Federated Learning: The results after Bayesian Classifier enable classification of all DDOS attacks without needed to share the first-hand data
+* Transfer Learning: each CNN model will transfer learning with the other two edges for fine tuning.
+
+---
+
+## Roadmap
+- [x] Implement Baseline experiment
+- [x] Transfer Learning
+- [ ] universal Metadata Training
 
 
-2. Train universal models that can still classify attack from the metadata for each single attacks
-![8](https://user-images.githubusercontent.com/97998419/223625529-2c74d096-116e-489f-a62f-a3781b07c6b8.png)
+
+
+
+## Contact
+Ethan Wang - [e13wang@gmail.com](e13wang@gmail.com) - [Linkedin Profile](https://www.linkedin.com/in/ethan-wang-938588175/)
+
+Project Link: [https://github.com/matsudatakeshi27/HeartDiseasePakula](https://github.com/EthanWTL/CyberSecurity)
